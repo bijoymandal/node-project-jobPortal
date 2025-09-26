@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-mini-project",
+  "version": "1.0.0",
+  "description": "Develope a job portal website that allows recruiters to post and manage job listings and provides a user-friendly platform for job seekers to find and apply for suitable roles",
+  "keywords": [
+    "job-portal",
+    "nakuri-portal",
+    "job-seeker"
+  ],
+  "license": "ISC",
+  "author": "bijoymandal",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-ejs": "^2.0.0",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.2"
+  }
+}

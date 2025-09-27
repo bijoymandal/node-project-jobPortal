@@ -1,7 +1,7 @@
 import JobCategoryModel from "./category.model.js";
 
 export default class JobListModel{
-    constructor(_id,_job_designation,_logo,_company_name,_job_location,_experience,_salary,_employees,_skills_required=[],_job_category,_job_posted){
+    constructor(_id,_job_designation,_logo,_company_name,_job_location,_experience,_salary,_employees,_skills_required=[],_job_category,_job_posted,_featured=false,_applicants=[]){
         this.id = _id;
         this.job_designation = _job_designation;
         this.logo = _logo;
@@ -12,8 +12,26 @@ export default class JobListModel{
         this.employees = _employees;
         this.skills_required = _skills_required,
         this.job_category = _job_category || null;
-        this.job_posted = _job_posted || new Date();
+        this.job_posted = JobListModel.formatDate(_job_posted || new Date());   
+        this.featured = _featured;
+        this.applicants = [];
+
     }
+
+    // static formatter
+    static formatDate(date) {
+        const d = new Date(date);
+        const day = String(d.getDate()).padStart(2, "0");
+        const month = String(d.getMonth() + 1).padStart(2, "0");
+        const year = d.getFullYear();
+
+        const hours = String(d.getHours()).padStart(2, "0");
+        const minutes = String(d.getMinutes()).padStart(2, "0");
+        const seconds = String(d.getSeconds()).padStart(2, "0");
+
+        return `${day}/${month}/${year}, ${hours}:${minutes}:${seconds}`;
+    }
+
 
     static getAllJobs() {
         return JobModel;
@@ -40,7 +58,9 @@ var JobModel =[
         "190,000+ employees",
         ["HTML","CSS","JavaScript","ReactJS"],
         1,
-        new Date("2023-10-01")
+        new Date("2023-10-01T09:15:20"),
+        true,
+
     ),
     new JobListModel(
         2,
@@ -53,7 +73,8 @@ var JobModel =[
         "10,000+ employees",
         ["Angular","Js","SQL","MongoDB","ExpressJS","AWS"],
         4,
-        new Date("2023-09-25")
+        new Date("2023-09-25T07:30:20"),
+        false
     ),
     new JobListModel(
         3,
@@ -66,7 +87,8 @@ var JobModel =[
         "2,000+ employees",
         ["React","NodeJs","Javascript","SQL","Mongo DB","Express","AWS"],
         3,
-        new Date("2023-09-20")
+        new Date("2023-09-20T23:15:20"),
+        true
     ),
     new JobListModel(
         4,
@@ -79,7 +101,8 @@ var JobModel =[
         "220,000+ employees",
         ["C#",".Net","Azure","SQL","Microservices"],
         1,
-        new Date("2023-09-18")
+        new Date("2023-09-18T13:15:20"),
+        false
     ),
     new JobListModel(
         5,
@@ -92,6 +115,7 @@ var JobModel =[
         "150,000+ employees",
         ["Figma","Adobe XD","Sketch","InVision","HTML","CSS"],
         8,
-        new Date("2023-09-15")
+        new Date("2023-09-15T09:15:20"),
+        false
     )
 ];

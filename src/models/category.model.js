@@ -14,14 +14,6 @@ export default class JobCategoryModel{
     }
 }
 let JobCategory =[
-    new JobCategoryModel(1,"Software Development"),
-    new JobCategoryModel(2,"Data Science"),
-    new JobCategoryModel(3,"Product Management"),
-    new JobCategoryModel(4,"Design"),
-    new JobCategoryModel(5,"Marketing"),
-    new JobCategoryModel(6,"Sales"),
-    new JobCategoryModel(7,"Customer Support"),
-    new JobCategoryModel(8,"Human Resources"),
-    new JobCategoryModel(9,"Finance"),
-    new JobCategoryModel(10,"Operations")
+    new JobCategoryModel(1,"Tech"),
+    new JobCategoryModel(2,"Non Tech")
 ];

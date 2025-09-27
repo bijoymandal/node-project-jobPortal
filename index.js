@@ -36,7 +36,7 @@ server.get("/", (req, res) => {
   res.render("landing-page", { title: "Home Page" });
 });
 server.get("/jobs",jobListController.index);
-
+server.get("/job/:id",jobListController.show);
 
 // Start server
 server.listen(3400, () => {
